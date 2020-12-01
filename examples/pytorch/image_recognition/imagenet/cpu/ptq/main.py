@@ -91,7 +91,7 @@ parser.add_argument('--benchmark', dest='benchmark', action='store_true',
                     help='run benchmark')
 parser.add_argument('-r', "--accuracy_only", dest='accuracy_only', action='store_true',
                     help='For accuracy measurement only.')
-parser.add_argument("--ilit_checkpoint", default='./', type=str, metavar='PATH',
+parser.add_argument("--lpot_checkpoint", default='./', type=str, metavar='PATH',
                     help='path to checkpoint tuned by iLiT (default: ./)')
 parser.add_argument('--int8', dest='int8', action='store_true',
                     help='run benchmark')
@@ -265,7 +265,7 @@ def main_worker(gpu, ngpus_per_node, args):
     if args.tune:
         model.eval()
         model.module.fuse_model()
-        from ilit import Quantization
+        from lpot import Quantization
         quantizer = Quantization("./conf.yaml")
         q_model = quantizer(model)
         return
@@ -274,10 +274,10 @@ def main_worker(gpu, ngpus_per_node, args):
         model.eval()
         model.module.fuse_model()
         if args.int8:
-            from ilit.utils.pytorch import load
+            from lpot.utils.pytorch import load
             new_model = load(
-                os.path.join(args.ilit_checkpoint, 'best_configure.yaml'),
-                os.path.join(args.ilit_checkpoint, 'best_model_weights.pt'), model)
+                os.path.join(args.lpot_checkpoint, 'best_configure.yaml'),
+                os.path.join(args.lpot_checkpoint, 'best_model_weights.pt'), model)
         else:
             new_model = model
         validate(val_loader, new_model, criterion, args)

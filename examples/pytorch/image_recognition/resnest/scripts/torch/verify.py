@@ -55,7 +55,7 @@ class Options():
         parser.add_argument('--verify', type=str, default=None,
                             help='put the path to resuming file if needed')
         parser.add_argument("--tune", action='store_true',
-                            help="run ilit to tune int8 acc.")
+                            help="run lpot to tune int8 acc.")
         parser.add_argument('data', metavar='DIR',
                             help='path to dataset')
         parser.add_argument('-i', '--iterations', default=0, type=int, metavar='N',
@@ -127,7 +127,7 @@ def main():
 
     if args.tune:
         model.fuse_model()
-        from ilit import Quantization
+        from lpot import Quantization
         quantizer = Quantization("./conf.yaml")
         q_model = quantizer(model)
         exit(0)

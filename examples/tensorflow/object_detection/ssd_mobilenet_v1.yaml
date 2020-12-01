@@ -1,4 +1,4 @@
-model:                                               # mandatory. ilit uses this model name and framework name to decide where to save tuning history and deploy yaml.
+model:                                               # mandatory. lpot uses this model name and framework name to decide where to save tuning history and deploy yaml.
   name: ssd_mobilenet_v1
   framework: tensorflow                              # mandatory. supported values are tensorflow, pytorch, or mxnet; allow new framework backend extension.
   inputs: image_tensor
@@ -14,7 +14,7 @@ quantization:                                        # optional. tuning constrai
       algorithm: minmax
 
 evaluation:                                          # optional. used to config evaluation process.
-  accuracy:                                          # optional. required if user doesn't provide eval_func in ilit.Quantization.
+  accuracy:                                          # optional. required if user doesn't provide eval_func in lpot.Quantization.
     configs:                                         # optional. if not specified, use all cores in 1 socket.
       cores_per_instance: 28
       num_of_instance: 1

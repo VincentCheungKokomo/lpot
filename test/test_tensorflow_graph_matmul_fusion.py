@@ -6,8 +6,8 @@ import tensorflow as tf
 
 from tensorflow.core.framework import graph_pb2
 from tensorflow.python.framework import dtypes
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_common import QuantizeGraphHelper
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_matmul import FuseNodeStartWithMatmul
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_common import QuantizeGraphHelper
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_matmul import FuseNodeStartWithMatmul
 
 class TestGraphMatMulFusion(unittest.TestCase):
 

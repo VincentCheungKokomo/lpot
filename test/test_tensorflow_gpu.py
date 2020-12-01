@@ -5,8 +5,8 @@ import unittest
 import os
 import tensorflow as tf
 
-from ilit.adaptor.tf_utils.util import read_graph
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
+from lpot.adaptor.tf_utils.util import read_graph
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
 
 class TestTensorflowGpu(unittest.TestCase):
     resnet50_model_url = 'https://storage.googleapis.com/intel-optimized-tensorflow/models/v1_6/mobilenet_v1_1.0_224_frozen.pb'

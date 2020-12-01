@@ -4,7 +4,7 @@ import torch
 import torchvision
 import unittest
 import os
-from ilit.adaptor import FRAMEWORKS
+from lpot.adaptor import FRAMEWORKS
 
 
 class TestAdaptorPytorch(unittest.TestCase):

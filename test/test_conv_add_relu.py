@@ -3,8 +3,8 @@ import tensorflow as tf
 import numpy as np
 import copy
 from tensorflow.python.framework import graph_util
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_common import QuantizeGraphHelper
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_common import QuantizeGraphHelper
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
 
 class TestConvAddRelu(unittest.TestCase):
     def test_conv_add_relu(self):

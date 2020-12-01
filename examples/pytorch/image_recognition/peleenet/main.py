@@ -62,7 +62,7 @@ parser.add_argument('--dist-url', default='tcp://224.66.41.62:23456', type=str,
 parser.add_argument('--dist-backend', default='gloo', type=str,
                     help='distributed backend')
 # parser.add_argument('--int8', action='store_true', help='int8 quantization')
-parser.add_argument('--tune', action='store_true', help='int8 quantization tune with ilit')
+parser.add_argument('--tune', action='store_true', help='int8 quantization tune with lpot')
 # parser.add_argument('--profile', default='none', type=str, help='Profile')
 parser.add_argument('--weights', type=str, metavar='PATH', default='weights/peleenet_acc7208.pth.tar',
                     help='path to init checkpoint (default: none)')
@@ -152,7 +152,7 @@ def main():
     if args.tune:
         model.eval()
         model.module.fuse_model()
-        from ilit import Quantization
+        from lpot import Quantization
         quantizer = Quantization("./conf.yaml")
         q_model = quantizer(model)
         exit(0)

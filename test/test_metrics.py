@@ -2,7 +2,7 @@
 import numpy as np
 import unittest
 import os
-from ilit.metric import METRICS
+from lpot.metric import METRICS
 
 class TestMetrics(unittest.TestCase):
     def setUp(self):

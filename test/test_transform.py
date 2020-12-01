@@ -2,7 +2,7 @@
 import numpy as np
 import unittest
 import os
-from ilit.data import TRANSFORMS
+from lpot.data import TRANSFORMS
 class TestMetrics(unittest.TestCase):
     def setUp(self):
         pass

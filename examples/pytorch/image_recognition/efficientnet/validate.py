@@ -64,7 +64,7 @@ parser.add_argument('--tf-preprocessing', dest='tf_preprocessing', action='store
                     help='use tensorflow mnasnet preporcessing')
 parser.add_argument('--no-cuda', dest='no_cuda', action='store_true',
                     help='')
-parser.add_argument('--tune', action='store_true', help='int8 quantization tune with ilit')
+parser.add_argument('--tune', action='store_true', help='int8 quantization tune with lpot')
 
 
 def main():
@@ -110,7 +110,7 @@ def main():
         model.eval()
         model.fuse_model()
         conf_yaml = "conf_" + args.model + ".yaml"
-        from ilit import Quantization
+        from lpot import Quantization
         quantizer = Quantization(conf_yaml)
         q_model = quantizer(model)
         exit(0)

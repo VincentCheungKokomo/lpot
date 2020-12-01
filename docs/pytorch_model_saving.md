@@ -6,13 +6,13 @@ PyTorch
 # Design
 For PyTorch eager model, Intel® Low Precision Optimization Tool will automatically save tuning configure and weights of model which meet target goal when tuning process.
 ```python
-# In ilit/strategy/strategy.py
+# In lpot/strategy/strategy.py
 def stop(self, timeout, trials_count):
     if self.objective.compare(self.best_tune_result, self.baseline):
         ......
         self.adaptor.save(self.best_qmodel, os.path.dirname(self.deploy_path))
 
-# In ilit/adaptor/pytorch.py
+# In lpot/adaptor/pytorch.py
 def save(self, model, path):
     '''The function is used by tune strategy class for saving model.
 
@@ -31,7 +31,7 @@ def save(self, model, path):
 
     torch.save(model.state_dict(), os.path.join(path, "best_model_weights.pt"))
 ```
-Here, deploy_path is defined in configure yaml file. Default path is ./ilit_workspace/$framework/$module_name/, this folder will saving tuning history, deploy yaml, tuning configure and model weights. Tuning configure and weights files name are "best_configure.yaml" and "best_model_weights.pt".
+Here, deploy_path is defined in configure yaml file. Default path is ./lpot_workspace/$framework/$module_name/, this folder will saving tuning history, deploy yaml, tuning configure and model weights. Tuning configure and weights files name are "best_configure.yaml" and "best_model_weights.pt".
 
 ```yaml
 tuning:
@@ -83,7 +83,7 @@ Intel® Low Precision Optimization Tool will automatically save tuning configure
 * loading model:  
 ```python
 model                 # fp32 model
-from ilit.utils.pytorch import load
+from lpot.utils.pytorch import load
 quantized_model = load(
     os.path.join(Path, 'best_configure.yaml'),
     os.path.join(Path, 'best_model_weights.pt'), model)

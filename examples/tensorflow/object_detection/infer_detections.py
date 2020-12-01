@@ -22,10 +22,10 @@ import time
 import numpy as np
 import tensorflow as tf
 
-from ilit import Quantization
+from lpot import Quantization
 import logging
 
-from ilit.adaptor.tf_utils.util import write_graph, get_graph_def
+from lpot.adaptor.tf_utils.util import write_graph, get_graph_def
 from tensorflow.python.data.experimental import parallel_interleave
 from tensorflow.python.data.experimental import map_and_batch
 from tensorflow.python.tools.optimize_for_inference_lib import optimize_for_inference

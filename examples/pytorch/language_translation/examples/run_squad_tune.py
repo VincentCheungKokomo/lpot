@@ -508,7 +508,7 @@ def main():
     parser.add_argument("--mkldnn_eval", action='store_true',
                         help="evaluation with MKLDNN")
     parser.add_argument("--tune", action='store_true',
-                        help="run ilit to tune int8 acc.")
+                        help="run lpot to tune int8 acc.")
     parser.add_argument("--task_name", default=None, type=str, required=True,
                         help="SQuAD task")
     parser.add_argument("--warmup", type=int, default=5,
@@ -644,7 +644,7 @@ def main():
                results.update(result)
 
             if args.tune:
-                def eval_func_for_ilit(model):
+                def eval_func_for_lpot(model):
                     result, _ = evaluate(args, model, tokenizer)
                     for key in sorted(result.keys()):
                         logger.info("  %s = %s", key, str(result[key]))
@@ -661,12 +661,12 @@ def main():
                 dataset = load_and_cache_examples(args, tokenizer, evaluate=True, output_examples=False)
                 args.eval_batch_size = args.per_gpu_eval_batch_size * max(1, args.n_gpu)
                 eval_task = "squad"
-                from ilit import Quantization
+                from lpot import Quantization
                 quantizer = Quantization("./conf.yaml")
                 dataset = quantizer.dataset('bert', dataset=dataset, task=eval_task,
                                             model_type=args.model_type)
                 test_dataloader = quantizer.dataloader(dataset, batch_size=args.eval_batch_size)
-                quantizer(model, test_dataloader, eval_func=eval_func_for_ilit)
+                quantizer(model, test_dataloader, eval_func=eval_func_for_lpot)
                 exit(0)
 
             if args.do_calibration:

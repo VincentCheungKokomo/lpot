@@ -5,9 +5,9 @@ import unittest
 import os
 import tensorflow as tf
 
-from ilit.adaptor.tf_utils.util import read_graph
-from ilit.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
-from ilit.adaptor.tf_utils.graph_converter import GraphConverter
+from lpot.adaptor.tf_utils.util import read_graph
+from lpot.adaptor.tf_utils.quantize_graph.quantize_graph_for_intel_cpu import QuantizeGraphForIntel
+from lpot.adaptor.tf_utils.graph_converter import GraphConverter
 
 class TestGraphLibraryDetection(unittest.TestCase):
     efficientnet_b0_model_url = 'https://raw.githubusercontent.com/SkyAI/inference_benchmark/435c7ca2577830025ca5f6cbce8480db16f76a61/efficientnet-b0.pb'

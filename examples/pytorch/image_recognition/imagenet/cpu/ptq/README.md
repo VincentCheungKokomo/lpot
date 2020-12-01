@@ -73,7 +73,7 @@ Intel® Low Precision Optimization Tool will automatically save tuning configure
 * loading model:  
 ```python
 model                 # fp32 model
-from ilit.utils.pytorch import load
+from lpot.utils.pytorch import load
 quantized_model = load(
     os.path.join(Path, 'best_configure.yaml'),
     os.path.join(Path, 'best_model_weights.pt'), model)
@@ -186,7 +186,7 @@ After prepare step is done, we just need update main.py like below.
 ```
 model.eval()
 model.module.fuse_model()
-from ilit import Quantization
+from lpot import Quantization
 quantizer = Quantization("./conf.yaml")
 q_model = quantizer(model)
 ```

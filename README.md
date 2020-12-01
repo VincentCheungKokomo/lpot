@@ -40,15 +40,15 @@ Supported tuning strategies are:
 * [PTQ and QAT](docs/ptq_qat.md) explains how Intel® Low Precision Optimization Tool works with post-training quantization and quantization-ware training.
 * [Pruning on PyTorch](docs/pruning.md) explains how Intel® Low Precision Optimization Tool works with magnitude pruning on PyTorch.
 * [Tensorboard](docs/tensorboard.md) explains how Intel® Low Precision Optimization Tool helps developer to analyze tensor distribution and the impact to final accuracy during tuning process.
-* [Quantized Model Deployment on PyTorch](docs/pytorch_model_saving.md) explains how Intel® Low Precision Optimization Tool quantizes a FP32 PyTorch model, save and deploy quantized model through ilit utils.
+* [Quantized Model Deployment on PyTorch](docs/pytorch_model_saving.md) explains how Intel® Low Precision Optimization Tool quantizes a FP32 PyTorch model, save and deploy quantized model through lpot utils.
 * [BF16 Mix-Precision on TensorFlow](docs/bf16_convert.md) explains how Intel® Low Precision Optimization Tool supports INT8/BF16/FP32 mix precision model tuning on TensorFlow backend.
 * [Supported Model Types on TensorFlow](docs/tensorflow_model_support.md) explains the TensorFlow model types supported by Intel® Low Precision Optimization Tool.
 
 # Install from source 
 
   ```Shell
-  git clone https://github.com/intel/lp-opt-tool.git
-  cd lp-opt-tool
+  git clone https://github.com/intel/lpot.git
+  cd lpot
   python setup.py install
   ```
 
@@ -56,10 +56,10 @@ Supported tuning strategies are:
 
   ```Shell
   # install from pip
-  pip install ilit
+  pip install lpot
 
   # install from conda
-  conda install ilit -c intel -c conda-forge
+  conda install lpot -c intel -c conda-forge
   ```
 
 # System Requirements
@@ -436,7 +436,7 @@ Intel® Low Precision Optimization Tool provides a lot of examples to show promi
 # Support
 
 Please submit your questions, feature requests, and bug reports on the
-[GitHub issues](https://github.com/intel/lp-opt-tool/issues) page. You may also reach out to ilit.maintainers@intel.com.
+[GitHub issues](https://github.com/intel/lpot/issues) page. You may also reach out to lpot.maintainers@intel.com.
 
 # Contributing
 
@@ -446,7 +446,7 @@ to improve the library:
 * For changes impacting the public API, submit an [RFC pull request](CONTRIBUTING.md#RFC_pull_requests).
 * Ensure that the changes are consistent with the [code contribution guidelines](CONTRIBUTING.md#code_contribution_guidelines) and [coding style](CONTRIBUTING.md#coding_style).
 * Ensure that you can run all the examples with your patch.
-* Submit a [pull request](https://github.com/intel/lp-opt-tool/pulls).
+* Submit a [pull request](https://github.com/intel/lpot/pulls).
 
 For additional details, see [contribution guidelines](CONTRIBUTING.md).
 
@@ -476,7 +476,7 @@ If you use Intel® Low Precision Optimization Tool in your research or wish to r
 @misc{Intel® Low Precision Optimization Tool,
   author =       {Feng Tian, Chuanqi Wang, Guoming Zhang, Penghui Cheng, Pengxin Yuan, Haihao Shen, and Jiong Gong},
   title =        {Intel® Low Precision Optimization Tool},
-  howpublished = {\url{https://github.com/intel/lp-opt-tool}},
+  howpublished = {\url{https://github.com/intel/lpot}},
   year =         {2020}
 }
 ```
